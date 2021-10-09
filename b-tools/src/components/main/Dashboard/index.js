@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import MUICard from "components/shared/Card";
+import * as React from "react";
 
-import "./dashboard.scss";
-
-function Dashboard() {
-  useEffect(init, []);
-
-  function init() {}
-
-  return <section className="dashboard">dadh</section>;
+export default function Dashboard() {
+  return (
+    <>
+      <MUICard>
+        <h3>Welcome to dashboard</h3>
+      </MUICard>
+    </>
+  );
 }
-
-export default Dashboard;
