@@ -1,6 +1,3 @@
-//  Core
-@import "../../../assets/core/base.scss";
-
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -21,7 +18,7 @@
   flex-direction: column;
   width: 100%;
   // transition: all 0.5s $app-sidebar-transition;
-
+  margin-top: 64px;
   &--inner {
     padding: 0.8rem;
     display: flex;
@@ -31,14 +28,4 @@
       width: 100%;
     }
   }
-}
-
-.app-main-sidebar-static {
-  display: flex;
-  padding-top: 60px !important;
-}
-
-.app-content-footer-fixed {
-  padding-bottom: 1rem;
-  height: auto;
 }

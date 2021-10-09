@@ -156,7 +156,10 @@ export default function Header() {
 
   return (
     <>
-      <AppBar>
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
         <Toolbar>
           <IconButton
             size="large"
