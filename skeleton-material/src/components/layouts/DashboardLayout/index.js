@@ -1,10 +1,8 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import { Route, Switch } from "react-router";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 
 import PropTypes from "prop-types";
-import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -31,7 +29,6 @@ function ScrollTop(props) {
     const anchor = (event.target.ownerDocument || document).querySelector(
       "#back-to-top-anchor"
     );
-    console.log(anchor);
     if (anchor) {
       anchor.scrollIntoView({
         behavior: "smooth",
@@ -74,7 +71,7 @@ function DashboardLayout(props) {
         <Box component="main" sx={{ flexGrow: 1, background: "#eee" }}>
           <div id="back-to-top-anchor" />
           <div className="app-wrapper">
-            <div className="app-main app-main-sidebar-static">
+            <div className="app-main ">
               <div className="app-content">
                 <div className="app-content--inner">
                   <div className="app-content--inner__wrapper">

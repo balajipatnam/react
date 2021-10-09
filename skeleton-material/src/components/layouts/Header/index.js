@@ -15,6 +15,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { useHistory } from "react-router";
+
+import "./header.scss";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,6 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -71,7 +75,11 @@ export default function Header() {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (e, type) => {
+    if (type === "LOGOUT") {
+      localStorage.clear();
+      history.push("/login");
+    }
     setAnchorEl(null);
     handleMobileMenuClose();
   };
@@ -99,6 +107,9 @@ export default function Header() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={(event) => handleMenuClose(event, "LOGOUT")}>
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -157,10 +168,11 @@ export default function Header() {
   return (
     <>
       <AppBar
+        className="header"
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        <Toolbar>
+        <Toolbar className="toolbar">
           <IconButton
             size="large"
             edge="start"
