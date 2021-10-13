@@ -4,6 +4,18 @@
 
 ### Start the application
 
+```bash
+npm run install
+
+```
+
+```bash
+yarn install
+
+```
+
+### Start the application
+
 In the project directory, you can run:
 uns the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
