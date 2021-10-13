@@ -175,7 +175,7 @@ yarn add --dev pretty-quick
 ```json
  "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --check && ng lint && npm run format"
+      "pre-commit": "pretty-quick --staged --check && npm run lint && npm run format"
     }
   }
 ```
@@ -183,8 +183,8 @@ yarn add --dev pretty-quick
 8. Add these two properties inside **scripts** in **package.json**
 
 ```
-"lint": "ng lint",
-"format": "prettier --write ."
+ "format": "prettier --write src/**/*.{js,jsx}",
+  "lint": "eslint src/**/*.{js,jsx} --fix"
 ```
 
 ## Usage
