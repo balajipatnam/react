@@ -2,7 +2,19 @@
 
 ## Available Scripts
 
+### Install Packages
+
 ### Start the application
+
+```bash
+npm run install
+
+```
+
+```bash
+yarn install
+
+```
 
 In the project directory, you can run:
 uns the app in the development mode.
