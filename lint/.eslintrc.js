@@ -20,17 +20,23 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 0,
-    'no-console': 'error', //unused consoles
+    'no-console': 'error', // unused consoles
     'no-eval': 'error',
     'no-dupe-keys': 'error',
-    'no-var': 'error', //unused variables
-    'no-useless-constructor': 'error', //unused variables
+    'no-var': 'error', // unused variables
+    'no-useless-constructor': 'error', // unused variables
     'react/display-name': 'off',
     'no-unused-vars': [
       'error',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
     ],
     'spaced-comment': [2, 'always'],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     // "eqeqeq": "error", // Example ==== instrad  ==,
   },
   settings: {
