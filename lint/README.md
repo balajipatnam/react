@@ -200,7 +200,7 @@ set below variable in **.env** file
 DISABLE_ESLINT_PLUGIN=true
 ```
 ## Troubleshooting
-In case if husky not working Remove **.husky** from **.git** folder and then reinstall husky package.
+In case if husky not working Remove **hooks** folder from **.git** and then reinstall husky package.
 
 ## Contributing
 
