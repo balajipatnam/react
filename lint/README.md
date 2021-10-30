@@ -193,6 +193,15 @@ yarn add --dev pretty-quick
 npm run lint
 ```
 
+## Disable eslint check while compilation
+set below variable in **.env** file
+
+```
+DISABLE_ESLINT_PLUGIN=true
+```
+## Troubleshooting
+In case if husky not working Remove .husky from .git folder and then reinstall husky package.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
