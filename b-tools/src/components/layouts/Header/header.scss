@@ -1,5 +1,25 @@
 .header {
+  box-shadow: none !important;
+  z-index: 100 !important;
+  &-title {
+    font-weight: 600 !important;
+    color: var(--secondary-color);
+    font-size: 1.8rem !important;
+  }
+  &-notification {
+    color: var(--secondary-color) !important;
+    &:hover,
+    &:visited,
+    &:focus {
+      background: none !important;
+    }
+  }
+  &-username {
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    text-transform: capitalize;
+  }
   .toolbar {
-    background-color: var(--primary-color);
+    background-color: var(--dashboard-bg-color);
   }
 }

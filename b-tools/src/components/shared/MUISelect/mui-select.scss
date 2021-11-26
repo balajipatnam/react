@@ -1,0 +1,13 @@
+.mui-select {
+  display: flex;
+  flex-direction: column;
+  label {
+    padding-bottom: 0.5rem;
+  }
+  .MuiInputBase-root {
+    color: var(--secondary-color);
+  }
+  .MuiTextField-root {
+    margin-bottom: 1rem;
+  }
+}

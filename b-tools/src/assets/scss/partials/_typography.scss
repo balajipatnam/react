@@ -8,30 +8,19 @@ html {
 }
 html,
 body {
-  font-family: "Muli", "Helvetica Neue", "Arial", sans-serif;
+  font-family: 'Muli', 'Helvetica Neue', 'Arial', sans-serif;
   line-height: 1.4 !important;
   letter-spacing: -0.1px !important;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   height: 100%;
   background-color: #fff;
+  margin: 0;
 }
 
-// Material Tooltip styles starts here
-.mat-tooltip-panel {
-  margin-left: -2rem;
+.MuiFab-circular.MuiFab-primary {
+  background-color: var(--primary-color) !important;
 }
-.mat-tooltip {
-  background-color: #000 !important;
-  font-size: 1.3rem;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-}
-.mat-button.mat-primary {
-  color: #fff;
-  border: 1px solid #c3c3c3;
-}
-
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
