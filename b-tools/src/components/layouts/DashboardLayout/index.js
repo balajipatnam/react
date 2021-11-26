@@ -1,18 +1,17 @@
-import React, { lazy, Suspense, useEffect } from "react";
-import { Route, Switch } from "react-router";
-import Box from "@mui/material/Box";
+import React, { Suspense, useEffect } from 'react';
+import { Route, Switch } from 'react-router';
+import Box from '@mui/material/Box';
 
-import PropTypes from "prop-types";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
-import Fab from "@mui/material/Fab";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import Zoom from "@mui/material/Zoom";
+import PropTypes from 'prop-types';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Fab from '@mui/material/Fab';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Zoom from '@mui/material/Zoom';
 
-import Header from "components/layouts/Header";
-import "./DashboardLayout.scss";
-import Sidebar from "../sidebar";
-
-const Dashboard = lazy(() => import("components/main/Dashboard"));
+import Header from 'components/layouts/Header';
+import './DashboardLayout.scss';
+import Sidebar from '../sidebar';
+import LazyPages from 'utils/lazy-load-pages';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -27,12 +26,12 @@ function ScrollTop(props) {
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
+      '#back-to-top-anchor'
     );
     if (anchor) {
       anchor.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
+        behavior: 'smooth',
+        block: 'center',
       });
     }
   };
@@ -42,7 +41,7 @@ function ScrollTop(props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        sx={{ position: 'fixed', bottom: 16, right: 16 }}
       >
         {children}
       </Box>
@@ -65,12 +64,13 @@ function DashboardLayout(props) {
   function init() {}
   return (
     <>
-      <Box sx={{ display: "flex" }}>
-        <Header />
+      <Box sx={{ display: 'flex' }}>
         <Sidebar />
-        <Box component="main" sx={{ flexGrow: 1, background: "#eee" }}>
+        <Box component="main" sx={{ flexGrow: 1, background: '#eee' }}>
           <div id="back-to-top-anchor" />
           <div className="app-wrapper">
+            <Header />
+
             <div className="app-main ">
               <div className="app-content">
                 <div className="app-content--inner">
@@ -83,7 +83,17 @@ function DashboardLayout(props) {
                       }
                     >
                       <Switch>
-                        <Route exact path="/dashboard" component={Dashboard} />
+                        {LazyPages.admin.map((pages, index) => {
+                          return (
+                            <Route
+                              name={pages.name}
+                              exact
+                              key={'admin-' + index}
+                              path={pages.path}
+                              component={pages.component}
+                            />
+                          );
+                        })}
                       </Switch>
                     </Suspense>
                   </div>
@@ -94,7 +104,7 @@ function DashboardLayout(props) {
           </div>
         </Box>
         <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <Fab color="primary" size="small" aria-label="scroll back to top">
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>

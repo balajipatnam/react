@@ -1,26 +1,26 @@
 let initState = {
   loading: false,
-  companies: []
+  companies: [],
 };
 
 export const tableReducer = (state = initState, actions) => {
   switch (actions.type) {
-    case "SET_LOADING": {
+    case 'SET_LOADING': {
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     }
-    case "RESET_LOADING": {
+    case 'RESET_LOADING': {
       return {
         ...state,
-        loading: false
+        loading: false,
       };
     }
-    case "STORE_COMPANIES": {
+    case 'STORE_COMPANIES': {
       return {
         ...state,
-        companies: actions.value
+        companies: actions.value,
       };
     }
     default: {

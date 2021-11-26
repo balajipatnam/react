@@ -1,0 +1,36 @@
+.mui-table {
+  .MuiTableCell-head {
+    font-size: 14px;
+    color: var(--secondary-color);
+    opacity: 0.75;
+  }
+  .MuiTableCell-body {
+    font-size: 14px;
+    color: var(--default-color);
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(116, 125, 140, 0.1);
+  }
+  .MuiTableCell-body.teritary {
+    font-size: 14px;
+    color: var(--teritary-color);
+  }
+  .action-icon {
+    font-size: 1.2rem;
+    background: rgba(1, 186, 201, 0.1);
+    border-radius: 2px;
+    padding: 0.3rem;
+    color: var(--primary-color);
+    margin: 0 0.5rem;
+  }
+}
+.MuiTablePagination-actions {
+  button {
+    &:hover {
+      background: var(--primary-color);
+    }
+    background: var(--primary-color);
+    color: white;
+    padding: 2px;
+    margin-left: 10px;
+  }
+}

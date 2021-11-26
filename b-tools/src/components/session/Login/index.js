@@ -1,66 +1,60 @@
-import React from "react";
-import { useHistory } from "react-router";
-import "./login.scss";
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+
+import { useHistory } from 'react-router';
+import MUIInput from 'components/shared/MUIInput';
+import MUIButton from 'components/shared/MUIButton';
+import MUICheckbox from 'components/shared/MUICheckbox';
+
+import './login.scss';
+import logoImg from 'assets/images/logo.png';
 
 function Login() {
+  const [loading, setIsLoading] = useState(false);
   const history = useHistory();
-  function login(e) {
+  function signIn(e) {
     e.preventDefault();
-    localStorage.setItem("authToken", true);
-    history.push("/dashboard");
+    setIsLoading(true);
+    setTimeout(() => {
+      localStorage.setItem('authToken', true);
+      history.push('/dashboard');
+    }, 2000);
   }
   return (
     <div className="login">
-      <div className="login-content">
-        <form className="row login-form" onSubmit={login}>
-          <h4>Log in to your account</h4>
-          <div className="col-md-12 pb-3">
-            <label htmlFor="inputEmail" className="form-label">
-              Email Address
-            </label>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text">
-                  <i className="fas fa-user"></i>{" "}
-                </span>
-              </div>
-              <input
-                type="email"
-                className="form-control"
-                id="inputEmail"
-                placeholder="Email Address"
-              />
+      <Grid container className="login-content">
+        <Grid item lg={7} sm={7} md={7} xs={12}>
+          <div className="banner">
+            <img src={logoImg} width="100" height="auto" />
+          </div>
+        </Grid>
+        <Grid
+          item
+          lg={5}
+          sm={5}
+          md={5}
+          xs={12}
+          className="login-content-container"
+        >
+          <Box component="form" noValidate autoComplete="off">
+            <h1>Welcome!</h1>
+            <h4>Please Login to your account</h4>
+            <MUIInput label="Email" placeholder="Enter your email id" />
+            <MUIInput label="Password" placeholder="Enter your password" />
+            <div className="rememberMe">
+              <MUICheckbox label="Remember Me" />
+              <a href="/forgot-password">Forgot Password?</a>
             </div>
-          </div>
-          <div className="col-md-12 pb-3">
-            <label htmlFor="inputPassword4" className="form-label">
-              Password
-            </label>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text">
-                  <i className="fas fa-lock"></i>{" "}
-                </span>
-              </div>
-              <input
-                type="password"
-                className="form-control"
-                id="inputPassword4"
-                placeholder="Password"
-              />
-            </div>
-          </div>
-          <div className="col-12">
-            <button type="submit" className="btn btn-primary">
-              Sign in
-            </button>
-          </div>
-          <div className="footer">
-            Don't have an account?
-            <a href="/register">Sign Up</a>
-          </div>
-        </form>
-      </div>
+            <MUIButton
+              type="submit"
+              text="Login"
+              onClick={signIn}
+              loading={loading}
+            />
+          </Box>
+        </Grid>
+      </Grid>
     </div>
   );
 }
